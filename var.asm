@@ -15,6 +15,13 @@ db $00, $00, $ff, $ff, $00, $ff, $55, $ff ; $9c Bottom
 db $75, $f7, $e5, $cf, $1d, $ff, $56, $fc ; $9d Bottom/Right
 db $00, $00, $00, $00, $00, $00, $00, $00 ; $9e White
 
+; this block of RAM gets the current level's enemy graphics
+udgsExtension:
+db $00, $00, $00, $00, $00, $00, $00, $00 ; $9f Left/Up
+db $00, $00, $00, $00, $00, $00, $00, $00 ; $a0 Right/Up
+db $00, $00, $00, $00, $00, $00, $00, $00 ; $a1 Left/Down
+db $00, $00, $00, $00, $00, $00, $00, $00 ; $a2 Right/Down
+
 udgsEnemiesLevel1:
 db $8c, $42, $2d, $1d, $b4, $be, $46, $30 ; $9f Left/Up
 db $31, $42, $b4, $b8, $2d, $7d, $62, $0c ; $a0 Right/Up
