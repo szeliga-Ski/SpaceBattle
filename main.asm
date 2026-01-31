@@ -27,4 +27,4 @@ include "const.asm"
 include "graph.asm"
 include "var.asm"
 include "print.asm"
-end  Main
+end  Main               ; tell pasmo to call Main from the Basic loader

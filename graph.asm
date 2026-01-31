@@ -1,4 +1,4 @@
-; copy the current level's enemu UDGs into "var.asm/udgsExtension"
+; copy the current level's enemy UDGs into "var.asm/udgsExtension"
 
 LoadUdgsEnemies:
 DEC  A                      ; A=level number so calculate the UDG offset

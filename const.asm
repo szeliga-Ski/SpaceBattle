@@ -12,4 +12,3 @@ BORDCR:     EQU $5C48
 
 ; ROM routine to clear screen using ATTR_P
 CLS:        EQU $0DAF
-
