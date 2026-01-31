@@ -1,3 +1,37 @@
+; -------------------------------------------------------------------
+; Position the cursor at the specified coordinates.
+;
+; Input: B = Y-coordinate (24 to 3).
+;        C = X-coordinate (32 to 1).
+; Alters the value of the AF register
+; -------------------------------------------------------------------
+At:
+push bc                    ; We preserve the value of BC
+exx                        ; We preserve the value of BC, DE and HL
+pop  bc                    ; Retrieve the value of BC
+call $0a23                 ; Call the ROM routine
+exx                        ; Retrieve the value of BC, DE and HL
+
+ret
+
+; -------------------------------------------------------------------
+; Change the ink
+;
+; Input: A -> Ink colour
+; Alters the value of the A register.
+; -------------------------------------------------------------------
+Ink:
+exx                        ; Preserves BC, DE and HL
+ld   b, a                  ; B = ink
+ld   a, (ATTR_T)           ; A = current attributes
+and  $f8                   ; A = Ink 0
+or   b                     ; A = Ink received
+ld   (ATTR_T), a           ; Current attributes = A
+exx                        ; Retrieves BC, DE and HL
+
+ret
+
+; -------------------------------------------------------------------
 ; copy the current level's enemy UDGs into "var.asm/udgsExtension"
 
 LoadUdgsEnemies:

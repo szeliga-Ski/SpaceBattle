@@ -19,6 +19,7 @@ LD   (BORDCR), A        ; store in system variable
 
 CALL PrintFrame         ; display game border
 CALL PrintInfoGame      ; display game info
+CALL PrintShip          ; display the ship
 
 Main_loop:
 JR   Main_loop

@@ -19,26 +19,37 @@ PrintFrame:
 LD   HL, frameTopGraph
 LD   B,  frameEnd - frameTopGraph
 CALL PrintString
-LD   B, $01
+LD   B, COR_Y - $01
 printFrame_loop:
-LD   A, $16
-RST  $10
-LD   A, B
-RST  $10
-LD   A, $00
-RST  $10
+LD   C, COR_X - MIN_X
+CALL At
 LD   A, $99
 RST  $10
-LD   A, $16
-RST  $10
-LD   A, B
-RST  $10
-LD   A, $1F
-RST  $10
+
+LD   C, COR_X - MAX_X
+CALL At
 LD   A, $9A
 RST  $10
-INC  B
-LD   A, B
-CP   $14
+
+DEC  B
+LD   A, COR_Y - MAX_Y + $01
+SUB  B
 JR   NZ, printFrame_loop
 RET
+
+
+; -------------------------------------------------------------------
+; Paints the ship at the current position.
+; Alters the value of the A and BC registers.
+; -------------------------------------------------------------------
+PrintShip:
+ld   a, $07                ; A = white ink
+call Ink                   ; Change ink
+
+ld   bc, (shipPos)         ; BC = ship position
+call At                    ; Position cursor
+
+ld   a, SHIP_GRAPH         ; A = ship character
+rst  $10                   ; Print ship
+
+ret
