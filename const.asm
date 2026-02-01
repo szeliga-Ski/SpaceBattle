@@ -30,3 +30,6 @@ SHIP_GRAPH: EQU $90
 SHIP_INI:   EQU $0511
 SHIP_TOP_L: EQU $1e
 SHIP_TOP_R: EQU $01
+
+; Character code of the blank character
+WHITE_GRAPH:	EQU $9e

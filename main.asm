@@ -22,10 +22,15 @@ CALL PrintInfoGame      ; display game info
 CALL PrintShip          ; display the ship
 
 Main_loop:
+CALL CheckCtrl          ; check for key presses
+CALL MoveShip
 JR   Main_loop
 
 include "const.asm"
+include "ctrl.asm"
+include "game.asm"
 include "graph.asm"
-include "var.asm"
 include "print.asm"
+include "var.asm"
+
 end  Main               ; tell pasmo to call Main from the Basic loader

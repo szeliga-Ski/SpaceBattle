@@ -1,3 +1,17 @@
+; -------------------------------------------------------------------
+; Deletes a character from the display
+;
+; Input: BC -> Y/X coordinates of the character
+; Alters the value of the AF registers
+; -------------------------------------------------------------------
+DeleteChar:
+call At                    ; Position cursor
+
+ld   a, WHITE_GRAPH        ; A = white character
+rst  $10                   ; Paints it and erases the ship
+
+ret
+
 PrintString:
 LD   A, (HL)
 RST  $10
@@ -36,7 +50,6 @@ LD   A, COR_Y - MAX_Y + $01
 SUB  B
 JR   NZ, printFrame_loop
 RET
-
 
 ; -------------------------------------------------------------------
 ; Paints the ship at the current position.
