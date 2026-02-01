@@ -12,6 +12,24 @@ rst  $10                   ; Paints it and erases the ship
 
 ret
 
+; -------------------------------------------------------------------
+; Paints the shot at the current position.
+; Alters the value of the AF and BC registers.
+; -------------------------------------------------------------------
+PrintFire:
+ld   a, $02                ; A = red ink
+call Ink                   ; Change ink
+
+ld   bc, (firePos)         ; BC = firing position
+call At                    ; Position cursor
+
+ld   a, FIRE_GRAPH         ; A = trigger character
+rst  $10                   ; Paints it
+
+ret
+
+
+
 PrintString:
 LD   A, (HL)
 RST  $10

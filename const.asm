@@ -31,5 +31,9 @@ SHIP_INI:   EQU $0511
 SHIP_TOP_L: EQU $1e
 SHIP_TOP_R: EQU $01
 
+; Shot character code and top
+FIRE_GRAPH: EQU $91
+FIRE_TOP_T: EQU COR_Y
+
 ; Character code of the blank character
 WHITE_GRAPH:	EQU $9e

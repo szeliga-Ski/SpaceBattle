@@ -1,0 +1,2 @@
+Isr		EQU 07E5CH
+Isr_end		EQU 07E65H
